@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init(d5DMhlLyemiZ7keTn);
-   })();
-</script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Soluciones en ciberseguridad, desarrollo web, software a medida y sistemas ERP para proteger y optimizar tu negocio">
     <title>VinekSec | Soluciones en Ciberseguridad y Desarrollo para Empresas</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://img.icons8.com/ios-filled/50/3498db/cyber-security.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/50/3498db/cyber-security.png" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('d5DMhlLyemiZ7keTn');
+        })();
+    </script>
     <style>
         :root {
             --primary: #2c3e50;
@@ -26,23 +32,11 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        <script>
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        emailjs.sendForm('service_0pes4ts', 'service_0pes4ts', this)
-            .then(function() {
-                alert('Mensaje enviado correctamente. Te contactaremos pronto.');
-            }, function(error) {
-                alert('Ocurrió un error al enviar el mensaje. Inténtalo de nuevo.');
-                console.log('FAILED...', error);
-            });
-    });
-</script>
-
+        
         body {
             line-height: 1.6;
             color: #333;
+            overflow-x: hidden;
         }
         
         header {
@@ -53,6 +47,7 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: fadeInDown 0.8s ease-out;
         }
         
         .container {
@@ -72,6 +67,11 @@
             font-weight: 700;
             color: white;
             text-decoration: none;
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
         }
         
         .logo span {
@@ -92,6 +92,22 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
         }
         
         .nav-links a:hover {
@@ -103,6 +119,26 @@
             color: white;
             padding: 5rem 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
         }
         
         .hero h1 {
@@ -124,11 +160,19 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
         }
         
         .btn:hover {
             background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn:active {
+            transform: translateY(-1px);
         }
         
         .btn-accent {
@@ -141,12 +185,34 @@
         
         section {
             padding: 4rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .section-title {
             text-align: center;
             margin-bottom: 3rem;
             color: var(--primary);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 25%;
         }
         
         .services {
@@ -160,11 +226,12 @@
             border-radius: 8px;
             padding: 2rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            transition: all 0.3s;
         }
         
         .service-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
         .service-card h3 {
@@ -195,11 +262,40 @@
             margin-bottom: 1.5rem;
         }
         
+        .about-image img {
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.02);
+        }
+        
         .cta {
             background: linear-gradient(135deg, var(--secondary), #2c3e50);
             color: white;
             text-align: center;
             padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .cta .container {
+            position: relative;
+            z-index: 1;
         }
         
         .cta h2 {
@@ -231,6 +327,11 @@
         
         .footer-column ul li {
             margin-bottom: 0.8rem;
+            transition: transform 0.3s;
+        }
+        
+        .footer-column ul li:hover {
+            transform: translateX(5px);
         }
         
         .footer-column ul li a {
@@ -251,6 +352,79 @@
             font-size: 0.9rem;
         }
         
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Formulario */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        #form-status {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .status-success {
+            background-color: #d4edda;
+            color: #155724;
+            display: block !important;
+        }
+        
+        .status-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block !important;
+        }
+        
         @media (max-width: 768px) {
             .about-content {
                 grid-template-columns: 1fr;
@@ -259,9 +433,16 @@
             .nav-links {
                 display: none;
             }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -340,23 +521,24 @@
         <h2 class="section-title">Contacto</h2>
         <div style="max-width: 600px; margin: 0 auto;">
             <form id="contact-form">
-                <div style="margin-bottom: 1rem;">
-                    <label style="display: block; margin-bottom: 0.5rem;">Nombre</label>
-                    <input type="text" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
                 </div>
-                <div style="margin-bottom: 1rem;">
-                    <label style="display: block; margin-bottom: 0.5rem;">Empresa</label>
-                    <input type="text" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+                <div class="form-group">
+                    <label for="company">Empresa</label>
+                    <input type="text" id="company" name="company" class="form-control" required>
                 </div>
-                <div style="margin-bottom: 1rem;">
-                    <label style="display: block; margin-bottom: 0.5rem;">Email</label>
-                    <input type="email" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
                 </div>
-                <div style="margin-bottom: 1rem;">
-                    <label style="display: block; margin-bottom: 0.5rem;">Mensaje</label>
-                    <textarea style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; min-height: 150px;"></textarea>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" class="form-control" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-accent" style="width: 100%;">Enviar mensaje</button>
+                <div id="form-status"></div>
             </form>
         </div>
     </section>
@@ -371,10 +553,10 @@
                 <div class="footer-column">
                     <h3>Servicios</h3>
                     <ul>
-                        <li><a href="#">Ciberseguridad</a></li>
-                        <li><a href="#">Desarrollo Web</a></li>
-                        <li><a href="#">Software a Medida</a></li>
-                        <li><a href="#">Sistemas ERP</a></li>
+                        <li><a href="#services">Ciberseguridad</a></li>
+                        <li><a href="#services">Desarrollo Web</a></li>
+                        <li><a href="#services">Software a Medida</a></li>
+                        <li><a href="#services">Sistemas ERP</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -391,5 +573,50 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Animación de scroll para las secciones
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Manejo del formulario con EmailJS
+            const contactForm = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Mostrar estado de carga
+                formStatus.textContent = 'Enviando mensaje...';
+                formStatus.style.display = 'block';
+                formStatus.className = '';
+                
+                emailjs.sendForm('service_3fk2kgd', 'template_0pes4ts', this)
+                    .then(function() {
+                        formStatus.textContent = '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.';
+                        formStatus.className = 'status-success';
+                        contactForm.reset();
+                    }, function(error) {
+                        formStatus.textContent = 'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.';
+                        formStatus.className = 'status-error';
+                        console.error('Error al enviar el formulario:', error);
+                    });
+            });
+        });
+    </script>
 </body>
 </html>
