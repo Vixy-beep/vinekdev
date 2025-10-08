@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VinekDev - Líderes en soluciones tecnológicas innovadoras. Desarrollo web, aplicaciones móviles, AI/ML, blockchain y ciberseguridad de vanguardia.">
+    <meta name="keywords" content="desarrollo web, aplicaciones móviles, inteligencia artificial, blockchain, ciberseguridad, software personalizado, VinekDev">
+    <meta name="author" content="VinekDev">
+    <meta property="og:title" content="VinekDev - Innovación Tecnológica Sin Límites">
+    <meta property="og:description" content="Transformamos ideas en soluciones digitales extraordinarias con tecnología de vanguardia">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1200&q=80">
+    <title>VinekDev | Innovación Tecnológica Sin Límites</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://img.icons8.com/nolan/64/artificial-intelligence.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://img.icons8.com/nolan/64/artificial-intelligence.png" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- ScrollReveal -->
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('d5DMhlLyemiZ7keTn');
+        })();
+    </script>
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+</head>
+<body>
+    <!-- Cursor personalizado -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Partículas de fondo -->
+    <div id="particles-js"></div>
+
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">VinekDev</a>
+                <ul class="nav-links">
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu">
+            <a href="#services">Servicios</a>
+            <a href="#about">Nosotros</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contacto</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Innovación Tecnológica <span class="highlight">Emergente</span></h1>
+                <p>Somos un startup apasionado por transformar ideas creativas en soluciones digitales impactantes. Con tecnologías modernas y un enfoque personalizado, ayudamos a empresas emergentes a brillar en el mundo digital.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Iniciar Proyecto</a>
+                    <a href="#portfolio" class="btn btn-outline">Ver Portfolio</a>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="5">0</span>
+                        <span class="stat-label">Proyectos en Desarrollo</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="2">0</span>
+                        <span class="stat-label">Clientes Satisfechos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="100">0</span>
+                        <span class="stat-label">% Dedicación</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="7">0</span>
+                        <span class="stat-label">Días de Soporte</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios Especializados</h2>
+                <p>Desarrollamos soluciones web modernas y eficientes, adaptadas a las necesidades específicas de cada proyecto</p>
+            </div>
+            <div class="services">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Desarrollo Web Moderno</h3>
+                    <p>Creamos sitios web y aplicaciones funcionales con tecnologías actuales como HTML5, CSS3, JavaScript y frameworks modernos.</p>
+                    <ul class="service-features">
+                        <li>Sitios Web Responsivos</li>
+                        <li>Aplicaciones Web Interactivas</li>
+                        <li>Optimización de Performance</li>
+                        <li>SEO y Usabilidad</li>
+                    </ul>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Apps Móviles Nativas</h3>
+                    <p>Experiencias móviles excepcionales para iOS y Android con React Native, Flutter y desarrollo nativo.</p>
+                    <ul class="service-features">
+                        <li>UI/UX Revolucionario</li>
+                        <li>Integración IoT</li>
+                        <li>Push Notifications</li>
+                        <li>Analytics Avanzados</li>
+                    </ul>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>IA & Machine Learning</h3>
+                    <p>Soluciones inteligentes con algoritmos de ML, procesamiento de lenguaje natural y computer vision.</p>
+                    <ul class="service-features">
+                        <li>Chatbots Inteligentes</li>
+                        <li>Análisis Predictivo</li>
+                        <li>Automatización IA</li>
+                        <li>Visión Computacional</li>
+                    </ul>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fab fa-bitcoin"></i>
+                    </div>
+                    <h3>Blockchain & Web3</h3>
+                    <p>Desarrollo de DApps, smart contracts, NFTs y soluciones descentralizadas en múltiples blockchains.</p>
+                    <ul class="service-features">
+                        <li>Smart Contracts</li>
+                        <li>DeFi Applications</li>
+                        <li>NFT Marketplaces</li>
+                        <li>Tokenización</li>
+                    </ul>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>Ciberseguridad Elite</h3>
+                    <p>Protección de nivel empresarial con auditorías de seguridad, pentesting y arquitecturas zero-trust.</p>
+                    <ul class="service-features">
+                        <li>Penetration Testing</li>
+                        <li>Security Audits</li>
+                        <li>Zero-Trust Architecture</li>
+                        <li>Threat Intelligence</li>
+                    </ul>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud & DevOps</h3>
+                    <p>Infraestructura escalable en AWS, Azure, GCP con CI/CD automatizado y contenedorización avanzada.</p>
+                    <ul class="service-features">
+                        <li>Kubernetes Orchestration</li>
+                        <li>CI/CD Pipelines</li>
+                        <li>Serverless Computing</li>
+                        <li>Monitoring 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Arquitectos del Futuro Digital</h2>
+                <p>Un equipo de visionarios tecnológicos redefiniendo los límites de la innovación</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <h3>Pioneros en Innovación Tecnológica</h3>
+                    <p>Somos VinekDev, un colectivo de ingenieros, diseñadores y estrategas digitales que no solo abrazan el futuro, sino que lo crean. Con más de una década combinada en tecnologías emergentes, transformamos conceptos disruptivos en realidades digitales extraordinarias.</p>
+                    <p>Nuestro DNA está compuesto por código limpio, arquitecturas escalables y una obsesión inquebrantable por la excelencia. Cada línea de código que escribimos, cada interfaz que diseñamos, lleva el sello de la innovación radical y la craftsmanship técnico.</p>
+                    <p>No somos solo desarrolladores, somos hackers del futuro, ingenieros de experiencias y creadores de ecosistemas digitales que trascienden las expectativas convencionales.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-code"></i>
+                            <span>Full-Stack Masters</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>Performance Obsessed</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security First</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-infinity"></i>
+                            <span>Scalable Solutions</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=600&q=80" alt="VinekDev - Innovación Tecnológica">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Portfolio de Innovación</h2>
+                <p>Proyectos que han revolucionado industrias y redefinido estándares tecnológicos</p>
+            </div>
+            <div class="services">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>E-Commerce AI-Powered</h3>
+                    <p>Plataforma de comercio electrónico con recomendaciones inteligentes que aumentó las ventas en 340%.</p>
+                    <ul class="service-features">
+                        <li>Machine Learning Personalizado</li>
+                        <li>Real-time Analytics</li>
+                        <li>Mobile-First Design</li>
+                    </ul>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3>HealthTech Revolution</h3>
+                    <p>Sistema de gestión hospitalaria con IoT que optimizó operaciones en 15 hospitales internacionales.</p>
+                    <ul class="service-features">
+                        <li>IoT Integration</li>
+                        <li>Blockchain Records</li>
+                        <li>AI Diagnostics</li>
+                    </ul>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>DeFi Protocol</h3>
+                    <p>Protocolo de finanzas descentralizadas que gestiona más de $50M en liquidez total bloqueada.</p>
+                    <ul class="service-features">
+                        <li>Smart Contract Audited</li>
+                        <li>Multi-Chain Support</li>
+                        <li>Yield Farming</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>¿Listo para Revolucionar tu Industria?</h2>
+            <p>Únete a los líderes visionarios que ya han transformado sus negocios con nuestras soluciones disruptivas. El futuro no espera, y nosotros tampoco.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Iniciar Revolución</a>
+                <a href="#services" class="btn btn-outline">Explorar Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conectemos el Futuro</h2>
+                <p>Transforma tu visión en realidad digital. Cada gran revolución comienza con una conversación.</p>
+            </div>
+            <div class="contact-form animate-on-scroll">
+                <form id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Empresa/Organización</label>
+                            <input type="text" id="company" name="company" class="form-control" placeholder="Nombre de tu empresa" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Corporativo</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="tu@empresa.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+1 (555) 123-4567">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Servicio de Interés</label>
+                        <select id="service" name="service" class="form-control" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="web-development">Desarrollo Web Avanzado</option>
+                            <option value="mobile-apps">Apps Móviles Nativas</option>
+                            <option value="ai-ml">IA & Machine Learning</option>
+                            <option value="blockchain">Blockchain & Web3</option>
+                            <option value="cybersecurity">Ciberseguridad Elite</option>
+                            <option value="cloud-devops">Cloud & DevOps</option>
+                            <option value="consulting">Consultoría Tecnológica</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Presupuesto Estimado</label>
+                        <select id="budget" name="budget" class="form-control">
+                            <option value="">Selecciona un rango</option>
+                            <option value="10k-25k">$10,000 - $25,000</option>
+                            <option value="25k-50k">$25,000 - $50,000</option>
+                            <option value="50k-100k">$50,000 - $100,000</option>
+                            <option value="100k-250k">$100,000 - $250,000</option>
+                            <option value="250k+">$250,000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Cuéntanos tu Visión</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Describe tu proyecto, objetivos y cómo podemos ayudarte a revolucionar tu industria..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <span class="btn-text">Iniciar Transformación Digital</span>
+                    </button>
+                    <div id="form-status"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>VinekDev</h3>
+                    <p>Arquitectos del futuro digital. Creamos ecosistemas tecnológicos que trascienden las expectativas convencionales y redefinen industrias completas.</p>
+                    <div class="social-links">
+                        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Servicios Elite</h3>
+                    <ul>
+                        <li><a href="#services"><i class="fas fa-rocket"></i> Desarrollo Web Avanzado</a></li>
+                        <li><a href="#services"><i class="fas fa-mobile-alt"></i> Apps Móviles Nativas</a></li>
+                        <li><a href="#services"><i class="fas fa-brain"></i> IA & Machine Learning</a></li>
+                        <li><a href="#services"><i class="fab fa-bitcoin"></i> Blockchain & Web3</a></li>
+                        <li><a href="#services"><i class="fas fa-shield-virus"></i> Ciberseguridad Elite</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Conecta con Nosotros</h3>
+                    <ul>
+                        <li><a href="mailto:hello@vinekdev.com"><i class="fas fa-envelope"></i> hello@vinekdev.com</a></li>
+                        <li><a href="tel:+18295912999"><i class="fas fa-phone"></i> +1 (829) 591-2999</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Santo Domingo, Dominican Republic</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> 24/7 Support Available</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Innovación Continua</h3>
+                    <ul>
+                        <li><a href="#portfolio"><i class="fas fa-trophy"></i> Portfolio de Proyectos</a></li>
+                        <li><a href="#"><i class="fas fa-blog"></i> Tech Blog</a></li>
+                        <li><a href="#"><i class="fas fa-certificate"></i> Certificaciones</a></li>
+                        <li><a href="#"><i class="fas fa-handshake"></i> Partnership Program</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 VinekDev. Forjando el futuro digital. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Externo -->
+    <script src="script.js"></script>
+</body>
+</html>
