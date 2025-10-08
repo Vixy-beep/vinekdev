@@ -1520,3 +1520,209 @@ select.form-control {
         font-size: 3rem;
     }
 }
+
+/* ===== BOTÓN ESPECIAL JORISE CON ANIMACIÓN BRILLANTE ===== */
+
+.jorise-btn {
+    position: relative;
+    background: linear-gradient(135deg, #bf00ff 0%, #8b00ff 50%, #da00ff 100%);
+    color: #ffffff !important;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    box-shadow: 
+        0 4px 15px rgba(191, 0, 255, 0.4),
+        0 0 20px rgba(191, 0, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(191, 0, 255, 0.3);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: jorise-glow 2s ease-in-out infinite alternate;
+}
+
+.jorise-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+    transition: left 0.5s ease;
+}
+
+.jorise-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(191, 0, 255, 0.1) 30%, 
+        transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.jorise-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 
+        0 8px 25px rgba(191, 0, 255, 0.6),
+        0 0 40px rgba(191, 0, 255, 0.4),
+        0 0 60px rgba(218, 0, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #da00ff 0%, #bf00ff 50%, #ff00e6 100%);
+    animation: jorise-lightning 0.6s ease-in-out, jorise-glow 1s ease-in-out infinite alternate;
+}
+
+.jorise-btn:hover::before {
+    left: 100%;
+    transition: left 0.6s ease;
+}
+
+.jorise-btn:hover::after {
+    opacity: 1;
+    animation: lightning-burst 0.6s ease-out;
+}
+
+@keyframes jorise-glow {
+    0% {
+        box-shadow: 
+            0 4px 15px rgba(191, 0, 255, 0.4),
+            0 0 20px rgba(191, 0, 255, 0.2);
+    }
+    100% {
+        box-shadow: 
+            0 4px 20px rgba(191, 0, 255, 0.6),
+            0 0 30px rgba(191, 0, 255, 0.4);
+    }
+}
+
+@keyframes jorise-lightning {
+    0% {
+        filter: brightness(1) saturate(1);
+    }
+    25% {
+        filter: brightness(1.3) saturate(1.5);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    50% {
+        filter: brightness(1.6) saturate(2);
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+    75% {
+        filter: brightness(1.3) saturate(1.5);
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+    }
+    100% {
+        filter: brightness(1) saturate(1);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+    }
+}
+
+@keyframes lightning-burst {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    25% {
+        transform: scale(0.5) rotate(90deg);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1) rotate(180deg);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(1.2) rotate(270deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.5) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Efectos de rayitos adicionales */
+.jorise-btn:hover {
+    position: relative;
+}
+
+.jorise-btn:hover::before {
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.8), 
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.8),
+        transparent);
+    animation: lightning-sweep 0.8s ease-out;
+}
+
+@keyframes lightning-sweep {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+/* Partículas de energía */
+.jorise-btn:hover {
+    animation: 
+        jorise-lightning 0.6s ease-in-out,
+        jorise-glow 1s ease-in-out infinite alternate,
+        energy-pulse 0.3s ease-out;
+}
+
+@keyframes energy-pulse {
+    0% {
+        box-shadow: 
+            0 8px 25px rgba(191, 0, 255, 0.6),
+            0 0 40px rgba(191, 0, 255, 0.4);
+    }
+    50% {
+        box-shadow: 
+            0 12px 35px rgba(191, 0, 255, 0.8),
+            0 0 60px rgba(191, 0, 255, 0.6),
+            0 0 80px rgba(218, 0, 255, 0.4),
+            0 0 100px rgba(255, 0, 230, 0.2);
+    }
+    100% {
+        box-shadow: 
+            0 8px 25px rgba(191, 0, 255, 0.6),
+            0 0 40px rgba(191, 0, 255, 0.4),
+            0 0 60px rgba(218, 0, 255, 0.3);
+    }
+}
+
+/* Responsive para botón Jorise */
+@media (max-width: 768px) {
+    .jorise-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+        border-radius: 20px;
+    }
+    
+    .jorise-btn:hover {
+        transform: translateY(-1px) scale(1.03);
+    }
+}
