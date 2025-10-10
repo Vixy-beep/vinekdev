@@ -1,0 +1,22 @@
+# Configuración con credenciales sensibles
+config.php
+
+# Dependencias de Composer
+vendor/
+composer.lock
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.swp
+*.swo
+
+# Variables de entorno
+.env
+.env.local
