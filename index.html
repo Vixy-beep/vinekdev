@@ -29,7 +29,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            emailjs.init('d5DMhlLyemiZ7keTn');
+            // Reemplaza con tu nueva Public Key de EmailJS
+            emailjs.init('TU_PUBLIC_KEY_AQUI');
         })();
     </script>
     <!-- CSS Externo -->
@@ -293,7 +294,12 @@
                 <p>Transforma tu visión en realidad digital. Cada gran revolución comienza con una conversación.</p>
             </div>
             <div class="contact-form animate-on-scroll">
-                <form id="contact-form">
+                <form id="contact-form" action="https://formsubmit.co/info@vineksec.online" method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="Nuevo contacto desde VinekDev">
+                    <input type="hidden" name="_next" value="https://vinekdev.com/gracias.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Nombre Completo</label>
@@ -374,7 +380,7 @@
                 <div class="footer-column">
                     <h3>Conecta con Nosotros</h3>
                     <ul>
-                        <li><a href="mailto:hello@vinekdev.com"><i class="fas fa-envelope"></i> hello@vinekdev.com</a></li>
+                        <li><a href="mailto:info@vineksec.online"><i class="fas fa-envelope"></i> info@vineksec.online</a></li>
                         <li><a href="tel:+18295912999"><i class="fas fa-phone"></i> +1 (829) 591-2999</a></li>
                         <li><a href="#"><i class="fas fa-map-marker-alt"></i> Santo Domingo, Dominican Republic</a></li>
                         <li><a href="#"><i class="fas fa-clock"></i> 24/7 Support Available</a></li>

@@ -171,53 +171,78 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Manejo del formulario con EmailJS
+    // Configuración de formulario de contacto
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const btnText = submitBtn.querySelector('.btn-text');
     
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // UI Loading state
-        submitBtn.disabled = true;
-        btnText.innerHTML = '<div class="loader"></div>Enviando...';
-        formStatus.style.display = 'none';
-        
-        // Animación de envío
-        gsap.to(contactForm, {
-            scale: 0.98,
-            duration: 0.2,
-            yoyo: true,
-            repeat: 1
-        });
-        
-        emailjs.sendForm('service_3fk2kgd', 'template_0pes4ts', this)
-            .then(function() {
-                formStatus.textContent = '🚀 ¡Mensaje enviado con éxito! Nuestro equipo te contactará en las próximas 24 horas para iniciar la revolución digital.';
-                formStatus.className = 'status-success';
-                formStatus.style.display = 'block';
-                contactForm.reset();
-                
-                // Animación de éxito
-                gsap.fromTo(formStatus, 
-                    { opacity: 0, y: 20 },
-                    { opacity: 1, y: 0, duration: 0.5 }
-                );
-                
-            }, function(error) {
-                formStatus.textContent = '❌ Error temporal en el sistema. Por favor, intenta nuevamente o contáctanos directamente.';
-                formStatus.className = 'status-error';
-                formStatus.style.display = 'block';
-                console.error('Error al enviar el formulario:', error);
-            })
-            .finally(() => {
-                // Restaurar botón
-                submitBtn.disabled = false;
-                btnText.textContent = 'Iniciar Transformación Digital';
+    // Determinar si usar EmailJS o FormSubmit
+    const useEmailJS = false; // Cambiar a true cuando configures EmailJS
+    
+    if (useEmailJS) {
+        // Manejo con EmailJS
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // UI Loading state
+            submitBtn.disabled = true;
+            btnText.innerHTML = '<div class="loader"></div>Enviando...';
+            formStatus.style.display = 'none';
+            
+            // Animación de envío
+            gsap.to(contactForm, {
+                scale: 0.98,
+                duration: 0.2,
+                yoyo: true,
+                repeat: 1
             });
-    });
+            
+            emailjs.sendForm('TU_SERVICE_ID_AQUI', 'TU_TEMPLATE_ID_AQUI', this)
+                .then(function() {
+                    formStatus.textContent = '🚀 ¡Mensaje enviado con éxito! Nuestro equipo te contactará en las próximas 24 horas para iniciar la revolución digital.';
+                    formStatus.className = 'status-success';
+                    formStatus.style.display = 'block';
+                    contactForm.reset();
+                    
+                    // Animación de éxito
+                    gsap.fromTo(formStatus, 
+                        { opacity: 0, y: 20 },
+                        { opacity: 1, y: 0, duration: 0.5 }
+                    );
+                    
+                }, function(error) {
+                    formStatus.textContent = '❌ Error temporal en el sistema. Por favor, intenta nuevamente o contáctanos directamente.';
+                    formStatus.className = 'status-error';
+                    formStatus.style.display = 'block';
+                    console.error('Error al enviar el formulario:', error);
+                })
+                .finally(() => {
+                    // Restaurar botón
+                    submitBtn.disabled = false;
+                    btnText.textContent = 'Iniciar Transformación Digital';
+                });
+        });
+    } else {
+        // Manejo con FormSubmit (funciona inmediatamente)
+        contactForm.addEventListener('submit', function(e) {
+            // UI Loading state
+            submitBtn.disabled = true;
+            btnText.innerHTML = '<div class="loader"></div>Enviando...';
+            formStatus.style.display = 'none';
+            
+            // Animación de envío
+            gsap.to(contactForm, {
+                scale: 0.98,
+                duration: 0.2,
+                yoyo: true,
+                repeat: 1
+            });
+            
+            // FormSubmit manejará el envío automáticamente
+            // No preventDefault() para permitir el envío normal del formulario
+        });
+    }
 
     // Efecto de hover para service cards
     const serviceCards = document.querySelectorAll('.service-card');
