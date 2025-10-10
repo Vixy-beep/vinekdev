@@ -171,16 +171,47 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Manejo del formulario de contacto con SMTP de Hostinger
+    // Manejo del formulario de contacto con FormSubmit
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const btnText = submitBtn.querySelector('.btn-text');
     
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+        // Validar campos requeridos antes del envío
+        const name = this.querySelector('#name').value.trim();
+        const email = this.querySelector('#email').value.trim();
+        const message = this.querySelector('#message').value.trim();
         
-        // UI Loading state
+        if (!name || !email || !message) {
+            e.preventDefault();
+            formStatus.textContent = '❌ Por favor completa todos los campos obligatorios: Nombre, Email y Mensaje.';
+            formStatus.className = 'status-error';
+            formStatus.style.display = 'block';
+            
+            gsap.fromTo(formStatus, 
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.5 }
+            );
+            return;
+        }
+        
+        // Validar formato de email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            e.preventDefault();
+            formStatus.textContent = '❌ Por favor ingresa un email válido.';
+            formStatus.className = 'status-error';
+            formStatus.style.display = 'block';
+            
+            gsap.fromTo(formStatus, 
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.5 }
+            );
+            return;
+        }
+        
+        // Si todo está bien, mostrar loading y permitir envío normal
         submitBtn.disabled = true;
         btnText.innerHTML = '<div class="loader"></div>Enviando...';
         formStatus.style.display = 'none';
@@ -193,57 +224,21 @@ document.addEventListener('DOMContentLoaded', function() {
             repeat: 1
         });
         
-        // Crear FormData
-        const formData = new FormData(this);
-        
-        // Enviar con fetch API
-                    fetch('send-email-simple.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                formStatus.textContent = '🚀 ¡Mensaje enviado con éxito! Nuestro equipo te contactará en las próximas 24 horas para iniciar la revolución digital.';
-                formStatus.className = 'status-success';
-                formStatus.style.display = 'block';
-                contactForm.reset();
-                
-                // Animación de éxito
-                gsap.fromTo(formStatus, 
-                    { opacity: 0, y: 20 },
-                    { opacity: 1, y: 0, duration: 0.5 }
-                );
-                
-                // Opcional: Redirigir a página de gracias después de 3 segundos
-                setTimeout(() => {
-                    window.location.href = 'gracias.html';
-                }, 3000);
-                
-            } else {
-                throw new Error(data.message);
-            }
-        })
-        .catch(error => {
-            formStatus.textContent = '❌ Error temporal en el sistema: ' + error.message + '. Por favor, intenta nuevamente o contáctanos directamente.';
-            formStatus.className = 'status-error';
+        // Mostrar mensaje de confirmación
+        setTimeout(() => {
+            formStatus.textContent = '🚀 ¡Enviando tu mensaje! FormSubmit se encargará del resto. Te redirigiremos a la página de confirmación...';
+            formStatus.className = 'status-success';
             formStatus.style.display = 'block';
-            console.error('Error al enviar el formulario:', error);
             
-            // Animación de error
             gsap.fromTo(formStatus, 
                 { opacity: 0, y: 20 },
                 { opacity: 1, y: 0, duration: 0.5 }
             );
-        })
-        .finally(() => {
-            // Restaurar botón
-            submitBtn.disabled = false;
-            btnText.textContent = 'Iniciar Transformación Digital';
-        });
-    });
-
-    // Efecto de hover para service cards
+        }, 500);
+        
+        // FormSubmit manejará automáticamente el envío y redirección
+        // No hacemos preventDefault() para permitir el envío normal del formulario
+    });    // Efecto de hover para service cards
     const serviceCards = document.querySelectorAll('.service-card');
     serviceCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
