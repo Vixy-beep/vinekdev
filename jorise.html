@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JORISE - Sistema de gestión empresarial completo con funcionalidades avanzadas desarrollado por VinekDev">
+    <meta name="keywords" content="JORISE, gestión empresarial, software personalizado, VinekDev, sistema de gestión">
+    <meta name="author" content="VinekDev">
+    <meta property="og:title" content="JORISE - Sistema de Gestión Empresarial | VinekDev">
+    <meta property="og:description" content="Descubre JORISE, nuestro sistema de gestión empresarial completo con funcionalidades avanzadas">
+    <meta property="og:type" content="website">
+    <title>JORISE - Sistema de Gestión Empresarial | VinekDev</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://img.icons8.com/nolan/64/artificial-intelligence.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://img.icons8.com/nolan/64/artificial-intelligence.png" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- ScrollReveal -->
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Variables CSS básicas para compatibilidad */
+        :root {
+            --dark: #0f172a;
+            --darker: #020617;
+            --white: #ffffff;
+        }
+        
+        /* Estilos básicos para asegurar carga */
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 90%;
+        }
+        
+        .section-title h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #ccc;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        /* Feature grid responsivo */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        /* Estilos para las tarjetas de JORISE */
+        .jorise-feature-card {
+            background: rgba(0, 0, 0, 0.6) !important;
+            backdrop-filter: blur(20px) !important;
+            border: 2px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 20px !important;
+            padding: 2rem !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            overflow: hidden !important;
+            min-height: 400px !important;
+            display: block !important;
+            visibility: visible !important;
+        }
+        
+        .jorise-feature-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+            border-color: rgba(255, 0, 110, 0.5) !important;
+        }
+        
+        .jorise-feature-icon {
+            font-size: 3rem !important;
+            background: linear-gradient(45deg, #ff006e, #ffb700) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            margin-bottom: 1rem !important;
+            display: block !important;
+        }
+        
+        .jorise-feature-card h3 {
+            color: #fff !important;
+            margin-bottom: 1rem !important;
+            font-size: 1.3rem !important;
+        }
+        
+        .jorise-feature-card p {
+            color: #ccc !important;
+            margin-bottom: 1rem !important;
+            line-height: 1.6 !important;
+        }
+        
+        .jorise-feature-card h4 {
+            margin-bottom: 0.5rem !important;
+            font-size: 1rem !important;
+        }
+        
+        .jorise-feature-card ul {
+            list-style: none !important;
+            padding-left: 0 !important;
+        }
+        
+        .jorise-feature-card li {
+            margin-bottom: 0.5rem !important;
+            padding-left: 1rem !important;
+            position: relative !important;
+        }
+        
+        .jorise-feature-card li::before {
+            content: "•" !important;
+            color: #ff006e !important;
+            position: absolute !important;
+            left: 0 !important;
+        }
+        
+        /* Estilos específicos para JORISE */
+        .jorise-hero {
+            background: linear-gradient(135deg, #ff006e 0%, #ff3300 25%, #ffb700 50%, #00ff88 75%, #0066ff 100%);
+            background-size: 400% 400%;
+            animation: jorise-gradient 8s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .jorise-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        
+        .jorise-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .jorise-title {
+            font-size: 4rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: jorise-text-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes jorise-text-glow {
+            0% { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); }
+            100% { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)); }
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .jorise-feature-card {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .jorise-feature-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff006e, #ff3300, #ffb700, #00ff88);
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .jorise-feature-card:hover::before {
+            opacity: 1;
+        }
+        
+        .jorise-feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .jorise-feature-icon {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #ff006e, #ffb700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 100px;
+            left: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .back-btn:hover {
+            background: linear-gradient(45deg, #ff006e, #ffb700);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cursor personalizado -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Partículas de fondo -->
+    <div id="particles-js"></div>
+    
+    <!-- Botón de regreso -->
+    <a href="index.html" class="back-btn" title="Volver al inicio">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Header simplificado -->
+    <header id="header" style="background: rgba(0, 0, 0, 0.8);">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">VinekDev</a>
+                <div style="display: flex; align-items: center; gap: 2rem;">
+                    <span style="color: #fff; font-weight: 600;">JORISE</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section de JORISE -->
+    <section class="jorise-hero">
+        <div class="container">
+            <div style="text-align: center;">
+                <h1 class="jorise-title">JORISE</h1>
+                <p style="font-size: 1.3rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);">
+                    Plataforma de ciberinteligencia y orquestación avanzada que permite administrar la seguridad de usuarios de forma remota y automatizada. Una suite completa de ciberseguridad que integra 5 capas de protección.
+                </p>
+                <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#features" class="btn btn-primary" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.3);">
+                        Explorar Funcionalidades
+                    </a>
+                    <a href="#contact" class="btn btn-outline" style="border: 2px solid rgba(255, 255, 255, 0.5); color: white;">
+                        Solicitar Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funcionalidades -->
+    <section id="features" style="padding: 5rem 0; background: #0f172a;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Arquitectura de 5 Capas de Ciberseguridad</h2>
+                <p>JORISE implementa una arquitectura distribuida que combina ingestión masiva de datos, correlación avanzada, motor de reglas inteligente y respuesta automatizada. Cada capa está diseñada para trabajar de forma independiente y coordinada, proporcionando una defensa en profundidad contra amenazas cibernéticas sofisticadas.</p>
+                <div style="background: rgba(0, 0, 0, 0.4); padding: 2rem; border-radius: 15px; margin: 2rem 0; border-left: 4px solid #ff006e;">
+                    <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1.3rem;">🏗️ Filosofía de Diseño</h3>
+                    <p style="color: #ccc; line-height: 1.8;">
+                        JORISE está construido sobre el principio de <strong>"Defense-in-Depth"</strong> con automatización inteligente. 
+                        La plataforma no solo detecta amenazas, sino que orquesta respuestas proactivas basadas en el análisis 
+                        continuo de múltiples fuentes de datos. Cada capa alimenta a la siguiente, creando un ciclo de 
+                        retroalimentación que mejora constantemente la postura de seguridad.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="feature-grid">
+                <!-- TEST CARD - Versión simplificada -->
+                <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; min-height: 300px;">
+                    <div style="font-size: 3rem; color: #ff006e; margin-bottom: 1rem;">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 style="color: #fff; margin-bottom: 1rem;">Capa 1: Ingestión de Datos</h3>
+                    <p style="color: #ccc; margin-bottom: 1rem;">Motor de recolección de alta velocidad que procesa múltiples streams de datos en tiempo real.</p>
+                    
+                    <div style="background: rgba(255, 0, 110, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 3px solid #ff006e;">
+                        <h4 style="color: #ff006e; margin-bottom: 0.5rem;">🔍 Fuentes de Datos:</h4>
+                        <ul style="margin-top: 0.5rem; color: #ccc; font-size: 0.9rem; list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 0.5rem;">• <strong>EDR/XDR Agents:</strong> Process creation, file modifications</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Network Logs:</strong> Firewall, proxy, DNS queries</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>System Logs:</strong> Windows Event Logs, Syslog</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Threat Feeds:</strong> IOCs, CVE databases</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(0, 0, 0, 0.3); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem; font-size: 1rem;">⚡ Capacidades Técnicas:</h4>
+                        <ul style="color: #ccc; font-size: 0.9rem; list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Procesamiento de <strong>10M+ eventos/segundo</strong></li>
+                            <li style="margin-bottom: 0.5rem;">• Conectores nativos para <strong>SIEM, EDR, Firewalls</strong></li>
+                            <li style="margin-bottom: 0.5rem;">• Normalización automática en formato <strong>STIX/TAXII</strong></li>
+                            <li style="margin-bottom: 0.5rem;">• Buffer resiliente con <strong>Redis/Kafka</strong> clustering</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; min-height: 300px;">
+                    <div style="font-size: 3rem; color: #ffb700; margin-bottom: 1rem;">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 style="color: #fff; margin-bottom: 1rem;">Capa 2: Correlación de Datos</h3>
+                    <p style="color: #ccc; margin-bottom: 1rem;">Engine de correlación distribuido que implementa algoritmos avanzados de detección de patrones y análisis temporal.</p>
+                    
+                    <div style="background: rgba(255, 183, 0, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 3px solid #ffb700;">
+                        <h4 style="color: #ffb700; margin-bottom: 0.5rem;">🧠 Algoritmos de Correlación:</h4>
+                        <ul style="margin-top: 0.5rem; color: #ccc; font-size: 0.9rem; list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 0.5rem;">• <strong>Temporal Correlation:</strong> Análisis de secuencias de eventos</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Behavioral Analysis:</strong> Detección de desviaciones</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Graph-based Detection:</strong> Análisis de relaciones</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Statistical Anomaly:</strong> Algoritmos Z-score, IQR</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(0, 0, 0, 0.3); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem; font-size: 1rem;">🔬 Enriquecimiento de Datos:</h4>
+                        <ul style="color: #ccc; font-size: 0.9rem; list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 0.5rem;">• <strong>VirusTotal API:</strong> Análisis automático de hashes, URLs</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>GeoIP Intelligence:</strong> Localización y ASN de IPs</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>DNS Intelligence:</strong> Resolución histórica, DGA detection</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Certificate Analysis:</strong> Validación SSL/TLS</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; min-height: 300px;">
+                    <div style="font-size: 3rem; color: #00ff88; margin-bottom: 1rem;">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 style="color: #fff; margin-bottom: 1rem;">Capa 3: Motor de Reglas</h3>
+                    <p style="color: #ccc; margin-bottom: 1rem;">Sistema de decisión basado en lógica fuzzy que evalúa eventos correlacionados contra reglas dinámicas.</p>
+                    
+                    <div style="background: rgba(0, 255, 136, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 3px solid #00ff88;">
+                        <h4 style="color: #00ff88; margin-bottom: 0.5rem;">⚙️ Engine de Reglas:</h4>
+                        <ul style="margin-top: 0.5rem; color: #ccc; font-size: 0.9rem; list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 0.5rem;">• <strong>SIGMA Rules:</strong> Compatibilidad nativa con SIGMA</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Custom DSL:</strong> Lenguaje específico del dominio</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>MITRE ATT&CK:</strong> Mapeo automático de técnicas</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Risk Scoring:</strong> Algoritmo basado en CVSS v3.1</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; min-height: 300px;">
+                    <div style="font-size: 3rem; color: #0066ff; margin-bottom: 1rem;">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3 style="color: #fff; margin-bottom: 1rem;">Capa 4: Módulo de Respuesta</h3>
+                    <p style="color: #ccc; margin-bottom: 1rem;">Framework de orquestación que ejecuta playbooks automatizados y acciones de respuesta coordinada.</p>
+                    
+                    <div style="background: rgba(0, 102, 255, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 3px solid #0066ff;">
+                        <h4 style="color: #0066ff; margin-bottom: 0.5rem;">🚀 Acciones Automatizadas:</h4>
+                        <ul style="margin-top: 0.5rem; color: #ccc; font-size: 0.9rem; list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 0.5rem;">• <strong>Process Isolation:</strong> Kill/suspend procesos maliciosos</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Network Segmentation:</strong> Bloqueo dinámico</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Artifact Collection:</strong> Captura de evidencia forense</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Sandbox Detonation:</strong> Análisis en sandbox</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; min-height: 300px;">
+                    <div style="font-size: 3rem; color: #bf00ff; margin-bottom: 1rem;">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 style="color: #fff; margin-bottom: 1rem;">Capa 5: Análisis OSINT</h3>
+                    <p style="color: #ccc; margin-bottom: 1rem;">Motor de inteligencia de fuentes abiertas que automatiza la recopilación y análisis contextual.</p>
+                    
+                    <div style="background: rgba(191, 0, 255, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 3px solid #bf00ff;">
+                        <h4 style="color: #bf00ff; margin-bottom: 0.5rem;">🕵️ Fuentes OSINT:</h4>
+                        <ul style="margin-top: 0.5rem; color: #ccc; font-size: 0.9rem; list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 0.5rem;">• <strong>Threat Intelligence:</strong> AlienVault OTX, Abuse.ch</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Pastebin Monitoring:</strong> Leaked credentials</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Social Media:</strong> Twitter, Reddit IOCs</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Dark Web:</strong> Onion sites, marketplaces</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; min-height: 300px;">
+                    <div style="font-size: 3rem; color: #ff3300; margin-bottom: 1rem;">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 style="color: #fff; margin-bottom: 1rem;">Orquestación Integrada</h3>
+                    <p style="color: #ccc; margin-bottom: 1rem;">Cerebro central que coordina todas las capas mediante APIs RESTful y message queues distribuidos.</p>
+                    
+                    <div style="background: rgba(255, 51, 0, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 3px solid #ff3300;">
+                        <h4 style="color: #ff3300; margin-bottom: 0.5rem;">🎛️ Arquitectura:</h4>
+                        <ul style="margin-top: 0.5rem; color: #ccc; font-size: 0.9rem; list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 0.5rem;">• <strong>Event-Driven:</strong> Apache Kafka messaging</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Microservices:</strong> Contenedores Docker</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>API Gateway:</strong> FastAPI con JWT</li>
+                            <li style="margin-bottom: 0.5rem;">• <strong>Kubernetes:</strong> Orquestación escalable</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botón Saber Más -->
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="mailto:info@vineksec.online?subject=Información%20detallada%20sobre%20JORISE&body=Hola%20VinekDev%2C%0A%0AMe%20interesa%20conocer%20más%20detalles%20sobre%20JORISE%20y%20sus%20capacidades%20de%20ciberseguridad.%20%0A%0APor%20favor%2C%20proporcionenme%20información%20adicional%20sobre%3A%0A-%20Especificaciones%20técnicas%0A-%20Casos%20de%20uso%0A-%20Implementación%0A-%20Pricing%0A%0ASaludos" 
+                   class="btn" 
+                   style="background: linear-gradient(45deg, #ff006e, #ffb700); color: white; font-size: 1.2rem; padding: 1rem 2rem; border-radius: 30px; text-decoration: none; display: inline-block; box-shadow: 0 0 20px rgba(255, 0, 110, 0.3); transition: all 0.3s ease;">
+                    <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>
+                    ¿Saber Más?
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" style="background: linear-gradient(135deg, #ff006e 0%, #ffb700 100%);">
+        <div class="container">
+            <h2 style="color: white;">¿Listo para Revolucionar tu Ciberseguridad?</h2>
+            <p style="color: white; opacity: 0.9;">Únete a las organizaciones que han transformado su postura de seguridad con JORISE, la suite de ciberinteligencia más avanzada.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn" style="background: white; color: #ff006e; font-weight: 600;">Solicitar Información</a>
+                <a href="index.html#contact" class="btn btn-outline" style="border-color: white; color: white;">Contactar VinekDev</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="padding: 5rem 0; background: var(--dark);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Solicita Información sobre JORISE</h2>
+                <p>Descubre cómo JORISE puede fortalecer la ciberseguridad de tu organización</p>
+            </div>
+            <div class="contact-form animate-on-scroll">
+                <form id="jorise-contact-form" action="https://formsubmit.co/info@vineksec.online" method="POST">
+                    <input type="hidden" name="_subject" value="�️ Consulta sobre JORISE - Suite de Ciberseguridad">
+                    <input type="hidden" name="_next" value="gracias.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="product" value="JORISE Cybersecurity Suite">
+                    <input type="hidden" name="_autoresponse" value="¡Gracias por tu interés en JORISE! Hemos recibido tu consulta y nos pondremos en contacto contigo dentro de las próximas 24 horas para proporcionarte información detallada sobre nuestra suite de ciberseguridad.">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Empresa</label>
+                            <input type="text" id="company" name="company" class="form-control" placeholder="Nombre de tu empresa" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Corporativo</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="tu@empresa.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+1 (555) 123-4567">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="security-focus">Área de Interés en Ciberseguridad</label>
+                        <select id="security-focus" name="security-focus" class="form-control" required>
+                            <option value="">Selecciona el área</option>
+                            <option value="endpoint-security">Seguridad de Endpoints</option>
+                            <option value="network-security">Seguridad de Red</option>
+                            <option value="threat-intelligence">Inteligencia de Amenazas</option>
+                            <option value="incident-response">Respuesta a Incidentes</option>
+                            <option value="osint-analysis">Análisis OSINT</option>
+                            <option value="full-suite">Suite Completa JORISE</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Describe tus necesidades de ciberseguridad</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Cuéntanos sobre los desafíos de ciberseguridad que enfrentas, qué tipo de amenazas te preocupan más, y cómo JORISE podría fortalecer tu postura de seguridad..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; background: linear-gradient(45deg, #ff006e, #ffb700);">
+                        <span class="btn-text">Solicitar Información de JORISE</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--darker); border-top: 1px solid rgba(255, 255, 255, 0.1);">
+        <div class="container">
+            <div style="text-align: center; padding: 2rem 0;">
+                <p>&copy; 2024 VinekDev. JORISE - Suite de Ciberinteligencia y Orquestación. Todos los derechos reservados.</p>
+                <p style="margin-top: 1rem; color: #888;">
+                    <a href="index.html" style="color: #888; text-decoration: none;">← Volver a VinekDev</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Configuración básica de partículas para JORISE
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 50, density: { enable: true, value_area: 800 } },
+                color: { value: '#00d4ff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.3, random: false },
+                size: { value: 2, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 120,
+                    color: '#bf00ff',
+                    opacity: 0.3,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1.5,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+
+        // ScrollReveal básico
+        if (typeof ScrollReveal !== 'undefined') {
+            ScrollReveal().reveal('.animate-on-scroll', {
+                distance: '50px',
+                duration: 1000,
+                easing: 'ease-out',
+                origin: 'bottom',
+                reset: false,
+                interval: 200
+            });
+        }
+
+        // Cursor personalizado básico
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursor = document.querySelector('.cursor');
+            const cursorFollower = document.querySelector('.cursor-follower');
+            
+            if (cursor && cursorFollower) {
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                    
+                    setTimeout(() => {
+                        cursorFollower.style.left = e.clientX + 'px';
+                        cursorFollower.style.top = e.clientY + 'px';
+                    }, 50);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

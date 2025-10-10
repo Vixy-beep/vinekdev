@@ -183,6 +183,104 @@ nav {
     box-shadow: 0 8px 25px rgba(123, 58, 237, 0.4);
 }
 
+/* Botón JORISE con efectos neon */
+.jorise-btn {
+    position: relative;
+    background: linear-gradient(45deg, #ff006e, #ff3300, #ffb700, #00ff88) !important;
+    background-size: 400% 400% !important;
+    border: 2px solid transparent !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    padding: 0.8rem 1.5rem !important;
+    border-radius: 30px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    overflow: hidden !important;
+    box-shadow: 
+        0 0 20px rgba(255, 0, 110, 0.3),
+        0 0 40px rgba(255, 51, 0, 0.2),
+        0 0 60px rgba(255, 183, 0, 0.1) !important;
+    animation: jorise-glow 3s ease-in-out infinite alternate, 
+               jorise-gradient 4s ease infinite !important;
+    transition: all 0.3s ease !important;
+}
+
+.jorise-btn:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 
+        0 0 30px rgba(255, 0, 110, 0.5),
+        0 0 60px rgba(255, 51, 0, 0.3),
+        0 0 90px rgba(255, 183, 0, 0.2),
+        0 15px 35px rgba(0, 0, 0, 0.3) !important;
+    filter: brightness(1.2) !important;
+}
+
+.jorise-btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff006e, #ff3300, #ffb700, #00ff88);
+    background-size: 400% 400%;
+    border-radius: 32px;
+    z-index: -1;
+    animation: jorise-gradient 4s ease infinite;
+    filter: blur(1px);
+}
+
+.jorise-text {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Animaciones */
+@keyframes jorise-glow {
+    0% {
+        box-shadow: 
+            0 0 20px rgba(255, 0, 110, 0.3),
+            0 0 40px rgba(255, 51, 0, 0.2),
+            0 0 60px rgba(255, 183, 0, 0.1);
+    }
+    100% {
+        box-shadow: 
+            0 0 30px rgba(255, 0, 110, 0.5),
+            0 0 60px rgba(255, 51, 0, 0.3),
+            0 0 90px rgba(255, 183, 0, 0.2);
+    }
+}
+
+@keyframes jorise-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Botón móvil de JORISE */
+.jorise-btn-mobile {
+    background: linear-gradient(45deg, #ff006e, #ff3300, #ffb700, #00ff88) !important;
+    background-size: 400% 400% !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    padding: 1rem 2rem !important;
+    border-radius: 25px !important;
+    text-align: center !important;
+    margin: 1rem 0 !important;
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.3) !important;
+    animation: jorise-gradient 4s ease infinite !important;
+}
+
 /* Mobile menu */
 .mobile-menu-btn {
     display: none;
