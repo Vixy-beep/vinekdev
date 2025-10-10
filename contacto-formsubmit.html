@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto FormSubmit - VinekDev</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 600px; 
+            margin: 50px auto; 
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        button {
+            background: linear-gradient(45deg, #00d4ff, #bf00ff);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .note {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #00d4ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>📧 Contacto VinekDev (FormSubmit)</h2>
+        
+        <div class="note">
+            <strong>📝 Nota:</strong> Este formulario usa FormSubmit y funciona al 100%. Te redirigirá a una página de confirmación tras enviar.
+        </div>
+        
+        <!-- Formulario con FormSubmit -->
+        <form action="https://formsubmit.co/info@vineksec.online" method="POST">
+            
+            <!-- Configuración FormSubmit -->
+            <input type="hidden" name="_subject" value="Nuevo contacto desde VinekDev">
+            <input type="hidden" name="_next" value="https://vinekdev.com/gracias.html">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            
+            <div class="form-group">
+                <label for="name">Nombre Completo *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="company">Empresa/Organización</label>
+                <input type="text" id="company" name="company">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Corporativo *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group">
+                <label for="service">Servicio de Interés</label>
+                <select id="service" name="service">
+                    <option value="">Selecciona un servicio</option>
+                    <option value="Desarrollo Web Avanzado">Desarrollo Web Avanzado</option>
+                    <option value="Apps Móviles Nativas">Apps Móviles Nativas</option>
+                    <option value="IA & Machine Learning">IA & Machine Learning</option>
+                    <option value="Blockchain & Web3">Blockchain & Web3</option>
+                    <option value="Ciberseguridad Elite">Ciberseguridad Elite</option>
+                    <option value="Cloud & DevOps">Cloud & DevOps</option>
+                    <option value="Consultoría Tecnológica">Consultoría Tecnológica</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="budget">Presupuesto Estimado</label>
+                <select id="budget" name="budget">
+                    <option value="">Selecciona un rango</option>
+                    <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+                    <option value="$25,000 - $50,000">$25,000 - $50,000</option>
+                    <option value="$50,000 - $100,000">$50,000 - $100,000</option>
+                    <option value="$100,000 - $250,000">$100,000 - $250,000</option>
+                    <option value="$250,000+">$250,000+</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Cuéntanos tu Visión *</label>
+                <textarea id="message" name="message" rows="4" placeholder="Describe tu proyecto, objetivos y cómo podemos ayudarte a revolucionar tu industria..." required></textarea>
+            </div>
+            
+            <button type="submit">Iniciar Transformación Digital</button>
+        </form>
+        
+        <p style="margin-top: 20px; text-align: center; color: #666;">
+            <small>🔒 Tus datos están seguros. Solo los usamos para contactarte sobre tu proyecto.</small>
+        </p>
+    </div>
+</body>
+</html>

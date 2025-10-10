@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const formData = new FormData(this);
         
         // Enviar con fetch API
-        fetch('send-email.php', {
+                    fetch('send-email-simple.php', {
             method: 'POST',
             body: formData
         })
