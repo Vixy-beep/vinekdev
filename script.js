@@ -38,33 +38,6 @@ particlesJS('particles-js', {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Cursor personalizado
-    const cursor = document.querySelector('.cursor');
-    const cursorFollower = document.querySelector('.cursor-follower');
-    
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        
-        setTimeout(() => {
-            cursorFollower.style.left = e.clientX + 'px';
-            cursorFollower.style.top = e.clientY + 'px';
-        }, 100);
-    });
-
-    // Efectos hover para elementos interactivos
-    const interactiveElements = document.querySelectorAll('a, button, .service-card');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'scale(1.5)';
-            cursorFollower.style.transform = 'scale(1.5)';
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'scale(1)';
-            cursorFollower.style.transform = 'scale(1)';
-        });
-    });
-
     // Header scroll effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
@@ -430,10 +403,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     
     if (isTouchDevice) {
-        // Desactivar efectos de cursor en dispositivos táctiles
-        cursor.style.display = 'none';
-        cursorFollower.style.display = 'none';
-        
         // Agregar clase para estilos específicos de touch
         document.body.classList.add('touch-device');
     }

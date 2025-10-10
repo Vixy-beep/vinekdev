@@ -1,0 +1,89 @@
+{
+  "name": "VinekDev",
+  "short_name": "Vinek",
+  "description": "Empresa líder en desarrollo web, aplicaciones móviles y ciberseguridad en República Dominicana",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e3a8a",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "technology"],
+  "lang": "es",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/assets/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "JORISE Ciberseguridad",
+      "short_name": "JORISE",
+      "description": "Acceso directo a la suite de ciberseguridad JORISE",
+      "url": "/jorise.html",
+      "icons": [
+        {
+          "src": "/assets/jorise-icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Contacto",
+      "short_name": "Contacto",
+      "description": "Contacta con VinekDev",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/assets/contact-icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

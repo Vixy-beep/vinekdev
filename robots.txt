@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://vineksec.online/sitemap.xml
+
+# Páginas importantes para crawling
+Allow: /index.html
+Allow: /jorise.html
+Allow: /gracias.html
+Allow: /style.css
+Allow: /script.js
+
+# Directorios permitidos
+Allow: /assets/
+Allow: /images/
+
+# Crawl-delay para ser amigable con los bots
+Crawl-delay: 1
+
+# Configuración específica para motores de búsqueda importantes
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# SEO: Host preference
+Host: https://vineksec.online
